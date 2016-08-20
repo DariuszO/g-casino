@@ -8,11 +8,15 @@ $(function () {
         size: 20
     });
 
+
     // 动画联动
     function testAnim(x) {
-        $('.animationSandbox').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-            $(this).removeClass().addClass('animationSandbox');
+        $('.animationSandbox').removeattr("style").attr({style:"animation-name:"+x+";animation-duration:5;"}).addClass("animated").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                $(this).removeattr("style")
         });
+        // $('.animationSandbox').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        //     $(this).removeClass().addClass('animationSandbox');
+        // });
     };
 
     $('.triggerAnimation').click(function(e){
