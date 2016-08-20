@@ -8,10 +8,25 @@ $(function () {
         size: 20
     });
 
+    // 滑动条
+    $('#ex1').slider({
+        formatter: function(value) {
+            return '持续: ' + value +" s";
+        }
+    });
+    $("#ex1").on("slide", function(slideEvt) {
+        $("#sliderVal").text(slideEvt.value);
+        // var animationDuration = $(".animationSandbox").data("animationDuration");
+        $(".animationSandbox").attr("data-animation-duration",slideEvt.value);
+        $(".animationSandbox").data("animation-duration", slideEvt.value);
+    });
+
+
+
 
     // 动画联动
-    function testAnim(x) {
-        $('.animationSandbox').removeClass().addClass(x + ' animated').removeAttr("style").attr({style:"animation-duration:4s;display:block;"}).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    function testAnim(x,y) {
+        $('.animationSandbox').removeClass().addClass(x + ' animated').removeAttr("style").attr({style:"animation-duration:"+y+"s;display:block;"}).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
             $(this).removeClass().addClass('animationSandbox').removeAttr("style");
         });
         // $('.animationSandbox').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
@@ -22,12 +37,14 @@ $(function () {
     $('.triggerAnimation').click(function(e){
         e.preventDefault();
         var anim = selectAnim.val();
-        testAnim(anim);
+        var animationDuration = $(".animationSandbox").data("animationDuration");
+        console.log($(".animationSandbox").data("animation-duration"));
+        testAnim(anim,animationDuration);
     });
 
-    $('.selectAnimations').change(function(){
-        var anim = selectAnim.val();
-        testAnim(anim);
-    });
+    // $('.selectAnimations').change(function(){
+    //     var anim = selectAnim.val();
+    //     testAnim(anim);
+    // });
 
 })

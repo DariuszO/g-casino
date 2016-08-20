@@ -10,6 +10,8 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="js/lib/boostrap-select/bootstrap-select.min.css">
+    <!--滑动条-->
+    <link rel="stylesheet" href="js/lib/bootstrap-slider/bootstrap-slider.min.css">
 
 
     <link href="css/css.css" rel="stylesheet">
@@ -48,7 +50,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div style="background: #f5f5f5; height: 600px; overflow: hidden;">
-                        <span class="animationSandbox" style="display: block;"><h1>Animate.css</h1></span>
+                        <span class="animationSandbox" data-animation-duration="1"  style="display: block;"><h1>Animate.css</h1></span>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -173,7 +175,14 @@
                                         <option value="rollOut">rollOut</option>
                                     </optgroup>
                                 </select>
-
+                                <hr/>
+                                <div class="form-group">
+                                    <label>时间</label>
+                                    <div class="form-control">
+                                    <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="1"/>
+                                        <span style="margin-left: 5px;" id="sliderVal">1</span>
+                                    </div>
+                                </div>
                                 <button class="btn btn-default triggerAnimation">演示</button>
                             </form>
                             <hr />
@@ -190,8 +199,10 @@
 </body>
 <script src="//cdn.bootcss.com/dragula/3.7.1/dragula.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
+<!-- 下拉框 -->
 <script src="js/lib/boostrap-select/bootstrap-select.min.js"></script>
+<!--滑动条-->
+<script src="js/lib/bootstrap-slider/bootstrap-slider.min.js"></script>
 <script src="js/js.js"></script>
 
 <script>
