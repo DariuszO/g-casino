@@ -8,11 +8,15 @@ $(function () {
         size: 20
     });
 
+
     // 动画联动
     function testAnim(x) {
-        $('.animationSandbox').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-            $(this).removeClass().addClass('animationSandbox');
+        $('.animationSandbox').removeClass().addClass(x + ' animated').removeAttr("style").attr({style:"animation-duration:4s;display:block;"}).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+            $(this).removeClass().addClass('animationSandbox').removeAttr("style");
         });
+        // $('.animationSandbox').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        //     $(this).removeClass().addClass('animationSandbox');
+        // });
     };
 
     $('.triggerAnimation').click(function(e){
@@ -22,7 +26,7 @@ $(function () {
     });
 
     $('.selectAnimations').change(function(){
-        var anim = $(this).val();
+        var anim = selectAnim.val();
         testAnim(anim);
     });
 
