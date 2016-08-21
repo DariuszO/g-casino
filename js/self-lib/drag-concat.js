@@ -5,14 +5,10 @@
         var disX = 0;
         var disY = 0;
         $(s).mousedown(function(ev){
+            ev.stopPropagation();
             var pLeft = $(this).offsetParent().offset().left;
             var pTop = $(this).offsetParent().offset().top;
-
-            console.log("pLeft:"+pLeft);
-            console.log("pTop:"+pTop);
-            console.log("left:"+$(this).offset().left);
-            console.log("top:"+$(this).offset().top);
-            disX = ev.clientX - $(this).offset().left;
+            disX = ev.clientX - $(this).offset().left+pLeft;
             disY = ev.clientY - $(this).offset().top+pTop;
             document.onmousemove = function(ev){
                 var ev = ev||window.event;
@@ -25,7 +21,6 @@
                 document.onmousemove = null;
                 document.onmouseup = null;
             }
-
         })
     }
 

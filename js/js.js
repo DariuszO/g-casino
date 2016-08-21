@@ -24,6 +24,7 @@ $(function () {
     // 拖拽
     drag(".animationSandbox-darg");
     drag(".testDrag");
+    drag('.testDrag02');
 
     // 动画联动
     function testAnim(x,y) {
