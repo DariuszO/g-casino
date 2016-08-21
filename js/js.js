@@ -21,8 +21,9 @@ $(function () {
         $(".animationSandbox").data("animation-duration", slideEvt.value);
     });
 
-
-
+    // 拖拽
+    drag(".animationSandbox-darg");
+    drag(".testDrag");
 
     // 动画联动
     function testAnim(x,y) {
